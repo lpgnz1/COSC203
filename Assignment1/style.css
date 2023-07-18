@@ -3,3 +3,14 @@ header {
     background-color: #2abbdb;
     text-align: center;
 }
+
+.birbcard {
+    background-color: #2abbdb;
+    border-radius: 25px;
+    border: 2px solid #2abbdb;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    display: inline-block;
+}
