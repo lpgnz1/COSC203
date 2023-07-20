@@ -1,0 +1,59 @@
+* {
+    font-family: 'Victor Mono', monospace;
+}
+
+h1 {
+    color: blue
+}
+
+h2 {
+    color: black
+}
+
+p {
+    color: green
+}
+
+a {
+    color: pink
+}
+
+body {
+    background-color: #79db;
+}
+
+header {
+    background-color: #799d;
+}
+
+nav {
+    background-color: #2adb;
+}
+
+main {
+    background-color: #b71b1b;
+}
+
+footer {
+    background-color: #5c4925;
+}
+
+.navTitleClass {
+    font-style: italic;
+}
+
+.pollyTitleClass {
+    font-style: bold;
+}
+
+.leaveTitleClass {
+    font-size: 20px;
+}
+
+.pollyimg {
+    margin: 20px;
+    border: 30px;
+    border-radius: 50%;
+    object-fit: cover;    
+    object-position: 100% 0%;
+}

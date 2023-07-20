@@ -7,47 +7,68 @@
 <header>
     <h1>Birds of Aotearoa</h1>
 </header>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birds of Aotearoa</title>
     <link rel="stylesheet" href="./style.css">
-    <script type="text/javascript"> src="./main.js" </script>
 </head>
+
 <body>
-
-    <!--- Navigation System? -->
-    <aside>
-        <h1>Filter Birds</h1>
-        <form>
-            <label for="birb">Search</label>
-        <br>
-            <input type="text" id="birb" name="birb">
-        <br><br>
-            <label for="conservation">Conservation Status</label>   
-        <br>
-            <select id="conservation" name="conservation">
-                <option value="Poop">Poop</option>
-                <option value="Piss">Piss</option>
-            </select>
-        <br><br>
-            <label for="sort">Sort By</label>   
-        <br>
-            <select id="sort" name="sort">
-                <option value="Poop">Poop</option>
-                <option value="Piss">Piss</option>
-            </select>
-        <br><br>
-        	<input type="submit" value="Filter Birbs">
-        </form>
-    </aside>
-
-    <!--- Bird cards -->
-    <article class="birbcard">
+    <div id="page-wrapper" class="grid">
         
-    </article>
+        <!--- Navigation System? -->
+        <section id="Search">
+
+            <h1>Filter Birds</h1>
+            <form>
+                <label for="birb">Search</label>
+                <br>
+                <input type="text" id="birb" name="birb">
+                <br><br>
+                <label for="conservation">Conservation Status</label>
+                <br>
+                <select id="conservation" name="conservation">
+                    <option value="Poop">Poop</option>
+                    <option value="Piss">Piss</option>
+                </select>
+                <br><br>
+                <label for="sort">Sort By</label>
+                <br>
+                <select id="sort" name="sort">
+                    <option value="Poop">Poop</option>
+                    <option value="Piss">Piss</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Filter Birbs">
+            </form>
+        </section>
+
+        <!--- Bird cards -->
+        <span>
+        
+            <article class="birbcard">
+
+            </article>
+
+            <article class="birbcard">
+
+            </article>
+
+            <article class="birbcard">
+
+            </article>
+                        
+            <article class="birbcard">
+
+            </article>
+
+        </span>
+    </div>
 </body>
 <footer>
 
 </footer>
+
 </html>
