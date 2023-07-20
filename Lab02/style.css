@@ -3,19 +3,22 @@
 }
 
 h1 {
-    color: blue
+    color: blue;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 h2 {
-    color: black
+    color: black;
 }
 
 p {
-    color: green
+    color: green;
 }
 
 a {
-    color: pink
+    color: pink;
 }
 
 body {
@@ -24,6 +27,8 @@ body {
 
 header {
     background-color: #799d;
+    position: relative;
+    top: 0px;
 }
 
 nav {
@@ -36,6 +41,8 @@ main {
 
 footer {
     background-color: #5c4925;
+    text-align: center;
+    padding: 0px;
 }
 
 .navTitleClass {
@@ -43,6 +50,10 @@ footer {
 }
 
 .pollyTitleClass {
+    display: block;
+    margin: auto;
+    text-align: center;
+    text-shadow: 0 8px 16px 10px rgba(0,0,0,0.2);
     font-style: bold;
 }
 
@@ -51,9 +62,65 @@ footer {
 }
 
 .pollyimg {
-    margin: 20px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 8px 16px 10px rgba(0,0,0,0.2);
     border: 30px;
     border-radius: 50%;
     object-fit: cover;    
     object-position: 100% 0%;
+}
+
+.pollyimgAlt {
+    position: relative;
+    display: inline-block;
+    margin: grid;
+}
+
+#a {
+    filter: blur(8px);
+}
+
+#b {
+    filter: brightness(50%); 
+}
+
+#c {
+    filter: contrast(200%); 
+}
+
+#d {
+    filter: drop-shadow(8px 8px 10px blue);
+}
+
+#e {
+    filter: grayscale(100%); 
+}
+
+#f {
+    filter: hue-rotate(90deg); 
+}
+
+#g {
+    filter: invert(100%); 
+}
+
+#h {
+    filter: opacity(50%);      
+}
+
+#i {
+    filter: saturate(200%); 
+}
+
+figcaption {
+    background-color: rgb(182, 179, 179);
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 10px rgba(0,0,0,0.2);
+
 }

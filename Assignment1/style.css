@@ -1,43 +1,107 @@
-header {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: #2abbdb;
-    text-align: center;
+
+/* Small screens (phones) */
+@media (min-width: 320px) {
+    header {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color: #2abbdb;
+        text-align: center;
+    }
+    
+    .birbcard {
+        background-color: #2abbdb;
+        border-radius: 25px;
+        border: 2px solid #2abbdb;
+        padding: 20px;
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        display: grid;
+    }
+    
+    .container {
+        display: grid;
+    }
+    
+    .grid {
+        display: grid;
+        grid-template-columns: 0.5fr 2fr;
+        grid-gap: 10px;
+    }
+    
+    .birbgrid {
+        font-family: 'Output Sans', -apple-system, BlinkMacSystemFont, 
+          "Segoe UI", "Roboto", "Oxygen", 
+          "Ubuntu", "Cantarell", "Fira Sans", 
+          "Droid Sans", "Helvetica Neue", sans-serif;
+        color: white;
+        text-transform: uppercase;
+        font-size: 12px;
+        background-color: rgba(0,0,0,0);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    main {
+        display: flex;
+    }
 }
 
-.birbcard {
-    background-color: #2abbdb;
-    border-radius: 25px;
-    border: 2px solid #2abbdb;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    display: grid;
+/* Medium screens (tablets) */
+@media (min-width: 640px) {
+    body {
+        background-color: yellow;
+    }
 }
 
-.container {
-    display: grid;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 0.5fr 2fr;
-    grid-gap: 10px;
-}
-
-.birbgrid {
-    font-family: 'Output Sans', -apple-system, BlinkMacSystemFont, 
-      "Segoe UI", "Roboto", "Oxygen", 
-      "Ubuntu", "Cantarell", "Fira Sans", 
-      "Droid Sans", "Helvetica Neue", sans-serif;
-    color: white;
-    text-transform: uppercase;
-    font-size: 12px;
-    background-color: rgba(0,0,0,0);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    height: 100%;
+/* Large screens (laptops) */
+@media (min-width: 1366px) {
+    header {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color: #2abbdb;
+        text-align: center;
+    }
+    
+    .birbcard {
+        background-color: #2abbdb;
+        border-radius: 25px;
+        border: 2px solid #2abbdb;
+        padding: 20px;
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        display: grid;
+    }
+    
+    .container {
+        display: grid;
+    }
+    
+    .grid {
+        display: grid;
+        grid-template-columns: 0.5fr 2fr;
+        grid-gap: 10px;
+    }
+    
+    .birbgrid {
+        font-family: 'Output Sans', -apple-system, BlinkMacSystemFont, 
+          "Segoe UI", "Roboto", "Oxygen", 
+          "Ubuntu", "Cantarell", "Fira Sans", 
+          "Droid Sans", "Helvetica Neue", sans-serif;
+        color: white;
+        text-transform: uppercase;
+        font-size: 12px;
+        background-color: rgba(0,0,0,0);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    main {
+        display: flex;
+    }
 }
