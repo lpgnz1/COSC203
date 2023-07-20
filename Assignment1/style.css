@@ -6,10 +6,22 @@
         text-align: center;
     }
 
+    h1 {
+        text-align: center;
+    }
+
     main {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
     }
 
     select {
@@ -37,6 +49,10 @@
 
     .grid {
         display: flex;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
 }
@@ -51,8 +67,8 @@
 
     main {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
     }
 
     select {
