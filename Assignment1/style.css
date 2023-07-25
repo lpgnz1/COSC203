@@ -57,13 +57,56 @@
 
     /* Birbcard stuff */
     main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 1rem;
     }
+
     .birbcard {
-        
+        display: flex;
+        flex-direction: column;
+        border-style: double;
+        border-radius: 10px;
+        border-color: black;
+        border-width: 10px;
+
+        .onImageText{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .title{
+                display: block;
+                font-size: 1.5em;
+                margin-block-start: 0%;
+                margin-block-end: 0%;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+            }
+
+            .photoCredit{
+                display: block;
+                margin-block-start: 0%;
+                margin-block-end: 0%;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+            }
+        }
+
+        .content{
+
+        }
+
     }
+    
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+
 
     /* Navigation-search stuff */
     .grid {
@@ -92,33 +135,16 @@
 
 
     /* Birbcard stuff */
-    main {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+
     .birbcard {
         display: grid;
+        gap: 1rem;
+        grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
         border-color: black;
         border-width: 10px;
         border-radius: 10px;
     }
 
-    .birbcard img{
-       width: 100%;
-       height: 100%;
-        
-    }
-
-    #Title{
-        color: whitesmoke;
-        position: relative;
-        Bottom: 50px;
-        Left: 10px;
-    }
-
-    #photoCredit{
-        ;
-    }
 
     /* Navigation-search stuff */
     .grid {
