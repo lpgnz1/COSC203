@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chat Server</title>
+    <link preload rel="stylesheet" href="lab05.css">
+    <script defer src="https://cosc203.cspages.otago.ac.nz/labs/files/emojiPicker.js"></script>
+    <script defer src="lab05-utils.js"></script>
+
+    <script defer src="lab05.js"></script>
+</head>
+
+<body>
+    <header>
+        <p class="my-img">😀</p> 
+        <input id="message-name" type="name" autocomplete="off" placeholder="Your name?" maxlength="20" required="">
+    </header>
+
+    <main id="chat-log-container">
+        <p>No messages (loading...)</p>
+    </main>
+
+    <form id="message-form">
+        <input id="message-text" type="text" autocomplete="off" placeholder="message..." data-emoji-picker="true">
+        <button id="message-button" type="submit">Send</button>
+    </form>
+
+</body>
+
+</html>

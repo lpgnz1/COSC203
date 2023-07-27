@@ -12,7 +12,9 @@ function response_callback(response) {
 function data_callback(data) {
     let emoji_array = JSON.parse(data);
     for (x of emoji_array) {
-        console.log(x.emoji);
+        if (x.name.includes("smiling")){
+            console.log(x.emoji);
+        } 
     }
 }
 

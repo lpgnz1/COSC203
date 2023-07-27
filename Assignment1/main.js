@@ -60,6 +60,50 @@ function createBirbCard(b) {
 	main.appendChild(birb_card);
 }
 
+function filter_birb_callback(data) {
+	let birb_array = JSON.parse(data);
+	let filtered_array = [];
+
+	let search_input = document.querySelector("#birb");
+	const search = search_input.value;
+	console.log(search);
+	search_input = '';
+
+	let cons_input = document.querySelector("#conservation");
+	const conStatus = cons_input.value;
+	cons_input = '';
+
+	let sort_input = document.querySelector("#sort");
+	const sort = sort_input.value;
+	sort_input = '';
+
+	//remove old main
+	const old_main = document.querySelector("main");
+	old_main.remove();
+	//make new main
+	let new_main = document.createElement("main");
+	document.querySelector("#page-wrapper").appendChild(new_main);
+
+	for (x of birb_array) {
+		if (x.primary_name.includes(search) || x.english_name.includes(search) || x.scientific_name.includes(search) || x.order.includes(search) || x.family.includes(search) || x.other_names.includes(search)) {
+			filtered_array.push(x);
+		}
+	}
+	for (x of filtered_array) {
+		createBirbCard(x);
+	}
+}
+
+function filterBirb(eventData) {
+	//collection of data from form on page
+	eventData.preventDefault();
+
+	fetch(URL).then(response_callback).then(filter_birb_callback);	
+}
+
+let filterButton = document.querySelector("#filterButton");
+filterButton.addEventListener('click', filterBirb);
+
 
 
 
