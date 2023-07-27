@@ -1,23 +1,30 @@
 let URL = "./nzbird.json";
 
 function response_callback(response) {
-    if (response.status != 200) {
-        return console.log('fail');
-    }
-    if (response.status == 200) {
-        return response.text();
-    }
+	if (response.status != 200) {
+		return console.log('fail');
+	}
+	if (response.status == 200) {
+		return response.text();
+	}
 }
 
 function data_callback(data) {
-    let birb_array = JSON.parse(data);
+	let birb_array = JSON.parse(data);
 	for (x of birb_array) {
 		createBirbCard(x)
 	}
 }
 
-fetch(URL).then(response_callback).then(data_callback);
-
+function loadAllBirbs() {
+	//remove old main
+	const old_main = document.querySelector("main");
+	old_main.remove();
+	//make new main
+	let new_main = document.createElement("main");
+	document.querySelector("#page-wrapper").appendChild(new_main);
+	fetch(URL).then(response_callback).then(data_callback);
+}
 
 function createBirbCard(b) {
 	let birb_card = document.createElement("article");
@@ -84,26 +91,32 @@ function filter_birb_callback(data) {
 	let new_main = document.createElement("main");
 	document.querySelector("#page-wrapper").appendChild(new_main);
 
-	for (x of birb_array) {
-		if (x.primary_name.includes(search) || x.english_name.includes(search) || x.scientific_name.includes(search) || x.order.includes(search) || x.family.includes(search) || x.other_names.includes(search)) {
-			filtered_array.push(x);
+	if (search != '') {
+		for (x of birb_array) {
+			if (x.primary_name.includes(search) || x.english_name.includes(search) || x.scientific_name.includes(search) || x.order.includes(search) || x.family.includes(search) || x.other_names.includes(search)) {
+				filtered_array.push(x);
+			}
 		}
 	}
 	for (x of filtered_array) {
 		createBirbCard(x);
 	}
+
+	let bannerClicker = document.querySelector("#banner");
+	bannerClicker.addEventListener('click', loadAllBirbs);
+
 }
 
 function filterBirb(eventData) {
 	//collection of data from form on page
 	eventData.preventDefault();
 
-	fetch(URL).then(response_callback).then(filter_birb_callback);	
+	fetch(URL).then(response_callback).then(filter_birb_callback);
 }
 
 let filterButton = document.querySelector("#filterButton");
 filterButton.addEventListener('click', filterBirb);
-
+loadAllBirbs();
 
 
 
