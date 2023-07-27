@@ -80,6 +80,8 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        gap: 1rem;
+        padding-bottom: 1rem;
     }
 
     select {

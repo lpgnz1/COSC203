@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birds of Aotearoa</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./main.js"></script>
+    <script defer src="./main.js"></script>
 </head>
 
 <body>
@@ -23,31 +23,27 @@
         <section id="Search">
 
             <h1>Filter Birds</h1>
-            <form>
+            <form class="filter">
                 <label for="birb">Search</label>
-                <br>
                 <input type="text" id="birb" name="birb">
-                <br><br>
                 <label for="conservation">Conservation Status</label>
-                <br>
                 <select id="conservation" name="conservation">
                     <option value="Poop">Poop</option>
                     <option value="Piss">Piss</option>
                 </select>
-                <br><br>
+
                 <label for="sort">Sort By</label>
-                <br>
                 <select id="sort" name="sort">
                     <option value="Poop">Poop</option>
                     <option value="Piss">Piss</option>
                 </select>
-                <br><br>
+
                 <input type="submit" value="Filter Birbs">
             </form>
         </section>
 
         <!--- Bird cards -->
-        <main id="main">
+        <main>
 
             <article class="birbcard">
             
