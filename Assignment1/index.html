@@ -7,12 +7,12 @@
 
 
 <head>
-    <header id="banner">
+    <header>
         <title>Birds of Aotearoa</title>
     </header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>Birds of Aotearoa</h1>
+    <h1 id="banner">Birds of Aotearoa</h1>
     <link rel="stylesheet" href="./style.css">
     <script defer src="./main.js"></script>
 </head>
@@ -25,19 +25,24 @@
 
             <h2>Filter Birds</h2>
             <form class="filter">
-                <label for="birb">Search</label>
-                <input type="text" id="birb" name="birb">
-                <label for="conservation">Conservation Status</label>
-                <select id="conservation" name="conservation">
-                    <option value="Poop">Poop</option>
-                    <option value="Piss">Piss</option>
-                </select>
-
-                <label for="sort">Sort By</label>
-                <select id="sort" name="sort">
-                    <option value="Poop">Poop</option>
-                    <option value="Piss">Piss</option>
-                </select>
+                <div class="searchTitleAndInput">
+                    <label for="birb">Search</label>
+                    <input type="text" id="birb" name="birb">
+                    </div>
+                <div class="conservationTitleAndOptions">
+                    <label for="conservation">Conservation Status</label>
+                    <select id="conservation" name="conservation">
+                        <option value="Poop">Poop</option>
+                        <option value="Piss">Piss</option>
+                    </select>
+                </div>
+                <div class="sortByTitleAndOptions">
+                    <label for="sort">Sort By</label>
+                    <select id="sort" name="sort">
+                        <option value="Poop">Poop</option>
+                        <option value="Piss">Piss</option>
+                    </select>
+                </div>
 
                 <input type="submit" value="Filter Birbs" id="filterButton">
             </form>

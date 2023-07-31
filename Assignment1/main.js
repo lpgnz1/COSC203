@@ -23,9 +23,47 @@ function loadAllBirbs() {
 	//make new main
 	let new_main = document.createElement("main");
 	document.querySelector("#page-wrapper").appendChild(new_main);
+	console.log("new main created");
 	fetch(URL).then(response_callback).then(data_callback);
 }
 
+function conservationSelector(status) {
+	if (status == "Not Threatened") {
+		return "#02a028"
+	}
+	if (status == "Naturally Uncommon") {
+		return "#649a31"
+	}
+	if (status == "Relict") {
+		return "#99cb68"
+	}
+	if (status == "Recovering") {
+		return "#fecc33"
+	}
+	if (status == "Declining") {
+		return "#fe9a01"
+	}
+	if (status == "Nationally Increasing") {
+		return "#c26967"
+	}
+	if (status == "Nationally Vulnerable") {
+		return "#9b0000"
+	}
+	if (status == "Nationally Endangered") {
+		return "#660032"
+	}
+	if (status == "Nationally Critical") {
+		return "#320033"
+	}
+	if (status == "Extinct") {
+		return "black"
+	}
+	if (status == "Data Deficient") {
+		return "black"
+	}
+
+	return "yellow"
+}
 function createBirbCard(b) {
 	let birb_card = document.createElement("article");
 	birb_card.setAttribute("class", "birbcard");
@@ -52,6 +90,8 @@ function createBirbCard(b) {
 
 	let description = document.createElement("p");
 	description.textContent = b.scientific_name + " " + b.order + " " + b.family;
+
+	birb_card.style.outlineColor = conservationSelector(b.status);
 
 	imageAndName.appendChild(image);
 	imageAndName.appendChild(maori_name);

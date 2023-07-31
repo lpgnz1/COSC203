@@ -7,6 +7,14 @@
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
+        align-items: center;
+        align-content: space-around;
+        gap: 1rem;
+    }
+
+    body {
+        background-color: rgb(70, 96, 20);
+        
     }
 
     img {
@@ -24,6 +32,11 @@
         border-radius: 10px;
         border-color: black;
         border-width: 10px;
+        background-color: antiquewhite;
+        box-shadow: 5px 5px 0px 0px black; 
+        top: 1rem;
+        outline: 4px solid black;
+        outline-offset: -7px;
 
         .onImageText{
             display: flex;
@@ -64,6 +77,23 @@
         text-align: center;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         background-color: #2abbdb;
+        border-radius: 5px;
+        border: 5px solid black
+    }
+
+    section {
+        align-items: center;
+        text-align: center;
+        border: 5px solid black;
+        border-radius: 5px;
+        background-color: #2abbdb;
+
+    }
+
+    .searchTitleAndInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     h2 {
@@ -78,17 +108,18 @@
     form {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
         gap: 1rem;
         padding-bottom: 1rem;
     }
 
     select {
+        box-sizing: border-box;
         width: 100%;
     }
 
     input {
+        box-sizing: border-box;
         width: 100%;
     }
 
@@ -116,6 +147,10 @@
         border-style: double;
         border-radius: 10px;
         border-color: black;
+        outline-style: solid;
+        outline-width: 4px;
+        
+        outline-offset: -7px;
         border-width: 10px;
         box-shadow: 5px 5px 0px 0px black;
 
@@ -176,6 +211,7 @@
     }
 
     select {
+        box-sizing: border-box;
         width: 100%;
     }
 
@@ -203,6 +239,8 @@
         border-color: black;
         border-width: 10px;
         border-radius: 10px;
+        outline: 4px solid yellow;
+        outline-offset: -7px;
     }
 
 
@@ -214,6 +252,7 @@
     }
 
     select {
+        box-sizing: border-box;
         width: 100%;
     }
 
