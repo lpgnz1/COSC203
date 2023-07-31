@@ -1,0 +1,19 @@
+.App {
+  color: white;
+  background: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+.hand {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+.card {
+  margin: 8px;
+  max-width: 30%;
+  min-width: 5%;
+}

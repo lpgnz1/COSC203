@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 08 Templating</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main.listClass {
+            width: 90%;
+            padding: 10px;
+        }
+
+        main>div.itemClass {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        main,
+        main>div.itemClass {
+            border: 2px solid gray;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .timeClass {
+            color: gray;
+            font-size: 0.8em;
+        }
+    </style>
+    <script>
+        function submit() {
+            // get input
+            const input = document.querySelector('input')
+            const text = input.value
+
+            // format timestamp string
+            const d = new Date();
+            const time = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}:${d.getMilliseconds()}`
+
+            // get a reference to the template
+            const template = document.querySelector("#itemTemplate");
+
+            // clone the template
+            const item = template.content.cloneNode(true);
+
+            // insert some values
+            item.querySelector('.textClass').textContent = text;
+            item.querySelector('.timeClass').textContent = time;
+
+            // append new element as usual
+            item.innerHTML =
+                `<input type="checkbox" />
+            <span class="textClass"> 
+                ${input.value}
+            </span>
+            <span class="timeClass">
+                ${time}
+            </span>`;
+            // append new element
+            document.querySelector('main.listClass').append(item)
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Todo List</h1>
+
+    <div>
+        <input type="text">
+        <button onclick="submit()">Add Item</button>
+    </div>
+
+    <main class="listClass">
+        <p>Items:</p>
+    </main>
+
+    <template id="itemTemplate">
+        <div class="itemClass">
+            <input type="checkbox" />
+            <span class="textClass"></span>
+            <span class="timeClass"></span>
+        </div>
+    </template>
+
+</body>
+
+</html>

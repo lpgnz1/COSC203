@@ -12,7 +12,7 @@ function response_callback(response) {
 function data_callback(data) {
 	let birb_array = JSON.parse(data);
 	for (x of birb_array) {
-		createBirbCard(x)
+		createBirbCard2(x)
 	}
 }
 
@@ -105,6 +105,18 @@ function createBirbCard(b) {
 
 	let main = document.querySelector("main");
 	main.appendChild(birb_card);
+}
+
+function createBirbCard2(b) {
+	let temp = document.querySelector("template");
+	let clone = temp.content.cloneNode(true);
+
+	clone.querySelector("img").setAttribute("src", b.photo.source);
+	clone.querySelector("h2").textContent = b.primary_name;
+	clone.getElementByClassName("photoCredit").textContent = b.photo.credit;
+	clone.querySelector("h3").textContent = b.english_name;
+	clone.querySelector("p").textContent = b.scientific_name + " " + b.order + " " + b.family;
+	temp.style.outlineColor = conservationSelector(b.status);
 }
 
 function filter_birb_callback(data) {
