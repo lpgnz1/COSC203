@@ -13,7 +13,7 @@
     }
 
     body {
-        background-color: rgb(70, 96, 20);
+        background-color: rgb(157, 187, 231);
         
     }
 
@@ -32,7 +32,7 @@
         border-radius: 10px;
         border-color: black;
         border-width: 10px;
-        background-color: antiquewhite;
+        background-color: rgba(250, 235, 215, 0.97);
         box-shadow: 5px 5px 0px 0px black; 
         top: 1rem;
         outline: 4px solid black;
@@ -42,6 +42,8 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            color: rgba(244, 193, 123, 0.986);
+            text-shadow: 2px 2px 5px black;
 
             .title{
                 display: block;
@@ -59,6 +61,7 @@
                 display: block;
                 position: absolute;
                 bottom: 5%;
+                font-style: italic;
                 margin-block-start: 0%;
                 margin-block-end: 0%;
                 margin-inline-start: 5px;
@@ -68,6 +71,7 @@
 
         .content{
             margin-inline-start: 5px;
+            text-shadow: 2px 2px 10px rgba(250, 235, 215, 0.986);
 
         }
     }
@@ -87,6 +91,7 @@
         border: 5px solid black;
         border-radius: 5px;
         background-color: #2abbdb;
+        margin-bottom: 1rem;
 
     }
 
@@ -103,6 +108,7 @@
     .grid {
         display: flex;
         flex-direction: column;
+        gap: 1rem;
     }
 
     form {
@@ -183,7 +189,9 @@
         }
 
         .content{
-            margin-inline-start: 5px;
+            margin-inline-start: 1rem;
+            
+            margin-inline-end: 1rem;
 
         }
 
@@ -196,6 +204,11 @@
             border-width: 2px;
         }
 
+        p{
+            margin-block-start: 0px;
+            margin-block-end: 0px;
+        }
+
     }
     
 
@@ -204,10 +217,26 @@
 
 
     /* Navigation-search stuff */
+
+    .Nav-container {
+        
+        position: fixed;
+        
+    }
+
+    section {
+        align-items: center;
+        text-align: center;
+        border: 5px solid black;
+        border-radius: 5px;
+        background-color: #2abbdb;
+        width: 100%;
+    }
+    
     .grid {
         display: grid;
         grid-template-columns: 0.5fr 2fr;
-        grid-gap: 10px;
+        gap: 1rem;
     }
 
     select {
@@ -229,18 +258,78 @@
         text-align: center;
     }
 
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
 
     /* Birbcard stuff */
 
     .birbcard {
-        display: grid;
-        gap: 1rem;
-        grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
-        border-color: black;
-        border-width: 10px;
+        display: flex;
+        flex-direction: column;
+        border-style: double;
         border-radius: 10px;
-        outline: 4px solid yellow;
+        border-color: black;
+        outline-style: solid;
+        outline-width: 4px;
+        
         outline-offset: -7px;
+        border-width: 10px;
+        box-shadow: 5px 5px 0px 0px black;
+
+        .onImageText{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .title{
+                display: block;
+                position: absolute;
+                bottom: 15%;
+                font-size: 1.5em;
+                margin-block-start: 0%;
+                margin-block-end: 0%;
+                margin-inline-start: 5px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+            }
+
+            .photoCredit{
+                display: block;
+                position: absolute;
+                bottom: 5%;
+                margin-block-start: 0%;
+                margin-block-end: 0%;
+                margin-inline-start: 5px;
+                margin-inline-end: 0px;
+            }
+        }
+
+        .content{
+            margin-inline-start: 1rem;
+            
+            margin-inline-end: 1rem;
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            image-rendering: inherit;
+            border: black;
+            border-bottom-style: solid;
+            border-width: 2px;
+        }
+
+        p{
+            margin-block-start: 0px;
+            margin-block-end: 0px;
+        }
+
     }
 
 
@@ -248,7 +337,7 @@
     .grid {
         display: grid;
         grid-template-columns: 0.5fr 2fr;
-        grid-gap: 10px;
+        gap: 1rem;
     }
 
     select {

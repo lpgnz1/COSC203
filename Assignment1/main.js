@@ -12,7 +12,7 @@ function response_callback(response) {
 function data_callback(data) {
 	let birb_array = JSON.parse(data);
 	for (x of birb_array) {
-		createBirbCard2(x)
+		createBirbCard(x)
 	}
 }
 
@@ -23,47 +23,23 @@ function loadAllBirbs() {
 	//make new main
 	let new_main = document.createElement("main");
 	document.querySelector("#page-wrapper").appendChild(new_main);
-	console.log("new main created");
 	fetch(URL).then(response_callback).then(data_callback);
 }
 
 function conservationSelector(status) {
-	if (status == "Not Threatened") {
-		return "#02a028"
-	}
-	if (status == "Naturally Uncommon") {
-		return "#649a31"
-	}
-	if (status == "Relict") {
-		return "#99cb68"
-	}
-	if (status == "Recovering") {
-		return "#fecc33"
-	}
-	if (status == "Declining") {
-		return "#fe9a01"
-	}
-	if (status == "Nationally Increasing") {
-		return "#c26967"
-	}
-	if (status == "Nationally Vulnerable") {
-		return "#9b0000"
-	}
-	if (status == "Nationally Endangered") {
-		return "#660032"
-	}
-	if (status == "Nationally Critical") {
-		return "#320033"
-	}
-	if (status == "Extinct") {
-		return "black"
-	}
-	if (status == "Data Deficient") {
-		return "black"
-	}
-
-	return "yellow"
+	if (status == "Not Threatened") { return "#02a028"}
+	if (status == "Naturally Uncommon") { return "#649a31"}
+	if (status == "Relict") { return "#99cb68"}
+	if (status == "Recovering") {return "#fecc33"}
+	if (status == "Declining") {return "#fe9a01"}
+	if (status == "Nationally Increasing") {return "#c26967"}
+	if (status == "Nationally Vulnerable") {return "#9b0000"}
+	if (status == "Nationally Endangered") {return "#660032"}
+	if (status == "Nationally Critical") {return "#320033"}
+	if (status == "Extinct") {return "black"}
+	if (status == "Data Deficient") {return "black"}
 }
+
 function createBirbCard(b) {
 	let birb_card = document.createElement("article");
 	birb_card.setAttribute("class", "birbcard");
@@ -88,8 +64,22 @@ function createBirbCard(b) {
 	let english_name = document.createElement("h3");
 	english_name.textContent = b.english_name;
 
-	let description = document.createElement("p");
-	description.textContent = b.scientific_name + " " + b.order + " " + b.family;
+	let scientific_name = document.createElement("p");
+	scientific_name.setAttribute("class", "data");
+	scientific_name.textContent = "Scientific Name: " + b.scientific_name;
+	let order = document.createElement("p");
+	order.setAttribute("class", "data");
+	order.textContent = "Order: " + b.order;	
+	let family = document.createElement("p");
+	family.setAttribute("class", "data");
+	family.textContent = "Family: " + b.family;
+	let status = document.createElement("p");
+	status.setAttribute("class", "data");
+	status.textContent = "Conservation Status: " + b.status;
+	// let length = document.createElement("p");
+	// length.textContent = "Length: " + b.length[0] + " " + b.length[1];
+	// let weight = document.createElement("p");
+	// weight.textContent = "Weight: " + b.weight[0] + " " + b.weight[1];
 
 	birb_card.style.outlineColor = conservationSelector(b.status);
 
@@ -98,7 +88,12 @@ function createBirbCard(b) {
 	imageAndName.appendChild(photo_credit);
 
 	content.appendChild(english_name);
-	content.appendChild(description);
+	content.appendChild(scientific_name);
+	content.appendChild(order);
+	content.appendChild(family);
+	content.appendChild(status);
+	// content.appendChild(length);
+	// content.appendChild(weight);
 
 	birb_card.appendChild(imageAndName);
 	birb_card.appendChild(content);
@@ -107,29 +102,25 @@ function createBirbCard(b) {
 	main.appendChild(birb_card);
 }
 
-function createBirbCard2(b) {
-	let temp = document.querySelector("template");
-	let clone = temp.content.cloneNode(true);
 
-	clone.querySelector("img").setAttribute("src", b.photo.source);
-	clone.querySelector("h2").textContent = b.primary_name;
-	clone.getElementByClassName("photoCredit").textContent = b.photo.credit;
-	clone.querySelector("h3").textContent = b.english_name;
-	clone.querySelector("p").textContent = b.scientific_name + " " + b.order + " " + b.family;
-	temp.style.outlineColor = conservationSelector(b.status);
+function filterBirb(eventData) {
+	//collection of data from form on page
+	eventData.preventDefault();
+
+	fetch(URL).then(response_callback).then(filter_birb_callback);
 }
 
 function filter_birb_callback(data) {
 	let birb_array = JSON.parse(data);
-	let filtered_array = [];
+	let search_filtered_array = [];
 
+	// retrieves input from form
 	let search_input = document.querySelector("#birb");
 	const search = search_input.value;
-	console.log(search);
 	search_input = '';
 
 	let cons_input = document.querySelector("#conservation");
-	const conStatus = cons_input.value;
+	const conStatus = cons_input.options[cons_input.selectedIndex].text;
 	cons_input = '';
 
 	let sort_input = document.querySelector("#sort");
@@ -143,27 +134,40 @@ function filter_birb_callback(data) {
 	let new_main = document.createElement("main");
 	document.querySelector("#page-wrapper").appendChild(new_main);
 
+	//filters by search terms
 	if (search != '') {
 		for (x of birb_array) {
 			if (x.primary_name.includes(search) || x.english_name.includes(search) || x.scientific_name.includes(search) || x.order.includes(search) || x.family.includes(search) || x.other_names.includes(search)) {
+				search_filtered_array.push(x);
+			}
+		}
+	} else { search_filtered_array = birb_array; }
+
+	// filters by conservation status, after filtering by search terms
+	let filtered_array = [];
+	if (conStatus != "All") {
+		for (x of search_filtered_array) {
+			if (x.status == conStatus) {
 				filtered_array.push(x);
 			}
 		}
+	} else { filtered_array = search_filtered_array; }
+
+
+	//when user searchs with blank search bar and default 'all' conservation status and default 'primary name' sort
+	if (filtered_array.length == 0) {
+		alert("No results found, or no search terms entered.");
+		loadAllBirbs();
 	}
+
+	//if all search terms are filled in 
 	for (x of filtered_array) {
 		createBirbCard(x);
 	}
 
 	let bannerClicker = document.querySelector("#banner");
 	bannerClicker.addEventListener('click', loadAllBirbs);
-
-}
-
-function filterBirb(eventData) {
-	//collection of data from form on page
-	eventData.preventDefault();
-
-	fetch(URL).then(response_callback).then(filter_birb_callback);
+	
 }
 
 let filterButton = document.querySelector("#filterButton");

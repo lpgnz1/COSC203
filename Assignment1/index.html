@@ -19,40 +19,54 @@
 
 <body>
     <div id="page-wrapper" class="grid">
-        
-        <!--- Navigation System? -->
-        <section id="Search">
+        <div id="Nav-container">
+            <!--- Navigation System? -->
+            <section id="Search">
 
-            <h2>Filter Birds</h2>
-            <form class="filter">
-                <div class="searchTitleAndInput">
-                    <label for="birb">Search</label>
-                    <input type="text" id="birb" name="birb">
+                <h2>Filter Birds</h2>
+                <form class="filter">
+                    <div class="searchTitleAndInput">
+                        <label for="birb">Search</label>
+                        <input type="text" id="birb" name="birb">
                     </div>
-                <div class="conservationTitleAndOptions">
-                    <label for="conservation">Conservation Status</label>
-                    <select id="conservation" name="conservation">
-                        <option value="Poop">Poop</option>
-                        <option value="Piss">Piss</option>
-                    </select>
-                </div>
-                <div class="sortByTitleAndOptions">
-                    <label for="sort">Sort By</label>
-                    <select id="sort" name="sort">
-                        <option value="Poop">Poop</option>
-                        <option value="Piss">Piss</option>
-                    </select>
-                </div>
+                    <div class="conservationTitleAndOptions">
+                        <label for="conservation">Conservation Status</label>
+                        <select id="conservation" name="conservation">
+                            <option value="All">All</option>
+                            <option value="Not Threatened">Not Threatened</option>
+                            <option value="Naturally Uncommon">Naturally Uncommon</option>
+                            <option value="Relict">Relict</option>
+                            <option value="Recovering">Recovering</option>
+                            <option value="Declining">Declining</option>
+                            <option value="Nationally Increasing">Nationally Increasing</option>
+                            <option value="Nationally Vulnerable">Nationally Vulnerable</option>
+                            <option value="Nationally Endangered">Nationally Endangered</option>
+                            <option value="Nationally Critical">Nationally Critical</option>
+                            <option value="Extinct">Extinct</option>
+                            <option value="Data Deficient">Data Deficient</option>
+                        </select>
+                    </div>
+                    <div class="sortByTitleAndOptions">
+                        <label for="sort">Sort By</label>
+                        <select id="sort" name="sort">
+                            <option value="Primary Name">Primary Name</option>
+                            <option value="English Name">English Name</option>
+                            <option value="Scientific Name">Scientific Name</option>
+                            <option value="Order">Order</option>
+                            <option value="Family">Family</option>
+                        </select>
+                    </div>
 
-                <input type="submit" value="Filter Birbs" id="filterButton">
-            </form>
-        </section>
+                    <input type="submit" value="Filter Birbs" id="filterButton">
+                </form>
+            </section>
+        </div>
 
         <!--- Bird cards -->
         <main>
 
             <template class="birbcard">
-            
+
                 <div class="onImageText">
                     <img src="">
                     <h2 class="title"></h2>
