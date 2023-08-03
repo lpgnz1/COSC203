@@ -124,7 +124,7 @@ function filter_birb_callback(data) {
 	cons_input = '';
 
 	let sort_input = document.querySelector("#sort");
-	const sort = sort_input.value;
+	const sort = sort_input.options[sort_input.selectedIndex].text;
 	sort_input = '';
 
 	//remove old main
@@ -143,6 +143,7 @@ function filter_birb_callback(data) {
 		}
 	} else { search_filtered_array = birb_array; }
 
+	
 	// filters by conservation status, after filtering by search terms
 	let filtered_array = [];
 	if (conStatus != "All") {
@@ -153,20 +154,52 @@ function filter_birb_callback(data) {
 		}
 	} else { filtered_array = search_filtered_array; }
 
+	//sorts by sort type, after filtering by search terms and conservation status
+	let sorted_array = sortBirbData(filtered_array, sort);
 
 	//when user searchs with blank search bar and default 'all' conservation status and default 'primary name' sort
-	if (filtered_array.length == 0) {
+	if (sorted_array.length == 0) {
 		alert("No results found, or no search terms entered.");
 		loadAllBirbs();
 	}
 
 	//if all search terms are filled in 
-	for (x of filtered_array) {
+	for (x of sorted_array) {
 		createBirbCard(x);
 	}
 
 	let bannerClicker = document.querySelector("#banner");
 	bannerClicker.addEventListener('click', loadAllBirbs);
+	document.getElementById("birb").value = '';
+	document.getElementById("conservation").value = 'All';
+	document.getElementById("sort").value = 'Primary Name';
+
+	
+}
+
+function sortBirbData(birbData, sortType){
+	if (sortType == ''){
+		return birbData;
+	}
+	// Sort the birdData array based on the sortType
+	return birbData.sort((birb1, birb2) => {
+		if (sortType === "Primary Name") {
+			return birb1.primary_name.localeCompare(birb2.primary_name);
+		} 
+		else if (sortType === "English_name") {
+			return birb1.english_name.localeCompare(birb2.english_name);
+		}
+		else if (sortType === "Scientific Name") {
+			return birb1.scientific_name.localeCompare(birb2.scientific_name);
+		}
+		else if (sortType === "Order") {
+			return birb1.order.localeCompare(birb2.order);
+		}
+		else if (sortType === "Family") {
+			return birb1.family.localeCompare(birb2.family);
+		}
+		else { console.log('fail');}
+	});
 	
 }
 
