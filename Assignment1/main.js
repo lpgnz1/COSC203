@@ -88,8 +88,10 @@ function createBirbCard(b) {
 	let weight = document.createElement("p");
 	weight.textContent = "Weight: " + b.size.weight.value + " " + b.size.weight.units;
 
+	//colors in the outline of the bird card based on conservation status
 	birb_card.style.outlineColor = conservationSelector(b.status);
 
+	//appends all elements to their parents
 	imageAndName.appendChild(image);
 	imageAndName.appendChild(maori_name);
 	imageAndName.appendChild(photo_credit);
@@ -219,6 +221,7 @@ function sortBirbData(birbData, sortType){
 	
 }
 
+//adds event listener to filter button and loads all birds on page load
 let filterButton = document.querySelector("#filterButton");
 filterButton.addEventListener('click', filterBirb);
 loadAllBirbs();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!---
+<!--
     COSC203 Assingment 1 - 2023 - Lachlan Graham 
     Student ID: 9008860
 -->
@@ -7,20 +7,20 @@
 
 
 <head>
-    <header>
-        <title>Birds of Aotearoa</title>
-    </header>
+    <title>Birds of Aotearoa</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1 id="banner">Birds of Aotearoa</h1>
     <link rel="stylesheet" href="./style.css">
     <script defer src="./main.js"></script>
 </head>
 
 <body>
+    <header>
+        <h1 id="banner">Birds of Aotearoa</h1>
+    </header>
     <div id="page-wrapper" class="grid">
         <div id="Nav-container">
-            <!--- Status color reference -->
+            <!-- Status color reference -->
             <section>
                 <div id="conservationStatusReference">
                     <h2 id="consSearchTitle">Conservation Status</h2>
@@ -55,7 +55,7 @@
 
                 </div>
             </section>
-            <!--- Navigation System? -->
+            <!-- Navigation System? -->
             <section id="search">
 
 
@@ -100,28 +100,15 @@
             </section>
         </div>
 
-        <!--- Bird cards -->
+        <!-- Bird cards -->
         <main>
-
-            <template class="birbcard">
-
-                <div class="onImageText">
-                    <img src="">
-                    <h2 class="title"></h2>
-                    <p class="photoCredit"></p>
-                </div>
-
-                <div class="content">
-                    <h3></h3>
-                    <p></p>
-                </div>
-            </template>
-
+            <!-- All bird cards created under createBirbCard() function in main.js -->
         </main>
     </div>
+    <footer>
+        <p>Data licensed from <a href="https://www.birdsnz.org.nz/">Birds New Zealand</a> for academic use</p>
+    </footer>
 </body>
-<footer>
-    <p>Data licensed from <a href="https://www.birdsnz.org.nz/">Birds New Zealand</a> for academic use</p>
-</footer>
+
 
 </html>
