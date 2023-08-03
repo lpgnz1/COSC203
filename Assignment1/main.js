@@ -26,6 +26,7 @@ function loadAllBirbs() {
 	fetch(URL).then(response_callback).then(data_callback);
 }
 
+//called when coloring in the outline of the bird card based on conservation status
 function conservationSelector(status) {
 	if (status == "Not Threatened") { return "#02a028"}
 	if (status == "Naturally Uncommon") { return "#649a31"}
@@ -40,13 +41,16 @@ function conservationSelector(status) {
 	if (status == "Data Deficient") {return "black"}
 }
 
+//creates a bird card for each bird in given array
 function createBirbCard(b) {
 	let birb_card = document.createElement("article");
 	birb_card.setAttribute("class", "birbcard");
 
+	//creates image and name element
 	let imageAndName = document.createElement("div");
 	imageAndName.setAttribute("class", "onImageText");
 
+	//creates image, title and photo credit elements
 	let image = document.createElement("img");
 	image.setAttribute("src", b.photo.source);
 
@@ -58,12 +62,15 @@ function createBirbCard(b) {
 	photo_credit.setAttribute("class", "photoCredit");
 	photo_credit.textContent = b.photo.credit;
 
+	//creates content element
 	let content = document.createElement("div");
 	content.setAttribute("class", "content");
 
+	//creates h3 element for english name
 	let english_name = document.createElement("h3");
 	english_name.textContent = b.english_name;
 
+	//creates a p element for each piece of data
 	let scientific_name = document.createElement("p");
 	scientific_name.setAttribute("class", "data");
 	scientific_name.textContent = "Scientific Name: " + b.scientific_name;
@@ -76,10 +83,10 @@ function createBirbCard(b) {
 	let status = document.createElement("p");
 	status.setAttribute("class", "data");
 	status.textContent = "Conservation Status: " + b.status;
-	// let length = document.createElement("p");
-	// length.textContent = "Length: " + b.length[0] + " " + b.length[1];
-	// let weight = document.createElement("p");
-	// weight.textContent = "Weight: " + b.weight[0] + " " + b.weight[1];
+	let length = document.createElement("p");
+	length.textContent = "Length: " + b.size.length.value + " " + b.size.length.units;
+	let weight = document.createElement("p");
+	weight.textContent = "Weight: " + b.size.weight.value + " " + b.size.weight.units;
 
 	birb_card.style.outlineColor = conservationSelector(b.status);
 
@@ -92,8 +99,8 @@ function createBirbCard(b) {
 	content.appendChild(order);
 	content.appendChild(family);
 	content.appendChild(status);
-	// content.appendChild(length);
-	// content.appendChild(weight);
+	content.appendChild(length);
+	content.appendChild(weight);
 
 	birb_card.appendChild(imageAndName);
 	birb_card.appendChild(content);
@@ -168,8 +175,11 @@ function filter_birb_callback(data) {
 		createBirbCard(x);
 	}
 
+	//adds event listener to banner to load all birds
 	let bannerClicker = document.querySelector("#banner");
 	bannerClicker.addEventListener('click', loadAllBirbs);
+
+	//clears search box and resets conservation status and sort type to default
 	document.getElementById("birb").value = '';
 	document.getElementById("conservation").value = 'All';
 	document.getElementById("sort").value = 'Primary Name';
@@ -197,6 +207,12 @@ function sortBirbData(birbData, sortType){
 		}
 		else if (sortType === "Family") {
 			return birb1.family.localeCompare(birb2.family);
+		}
+		else if (sortType === "Length") {
+			return birb1.size.length.value - birb2.size.length.value;
+		}
+		else if (sortType === "Weight") {
+			return birb1.size.weight.value - birb2.size.weight.value;
 		}
 		else { console.log('fail');}
 	});

@@ -90,6 +90,7 @@
 
 
     #search {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
         #filter {
             display: flex;
@@ -169,6 +170,7 @@
 
     #conservationStatusReference {
         display: grid;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         align-items: center;
         text-align: left;
         border: 5px solid black;
