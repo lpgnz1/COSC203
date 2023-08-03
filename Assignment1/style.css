@@ -1,5 +1,12 @@
 /* Small screens (phones) */
 @media (min-width: 320px) {
+    h1 {
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color: #2abbdb;
+        border-radius: 5px;
+        border: 5px solid black
+    }
 
     /* Birbcard stuff */
     main {
@@ -14,7 +21,7 @@
 
     body {
         background-color: rgb(157, 187, 231);
-        
+
     }
 
     img {
@@ -33,19 +40,19 @@
         border-color: black;
         border-width: 10px;
         background-color: rgba(250, 235, 215, 0.97);
-        box-shadow: 5px 5px 0px 0px black; 
+        box-shadow: 5px 5px 0px 0px black;
         top: 1rem;
         outline: 4px solid black;
         outline-offset: -7px;
 
-        .onImageText{
+        .onImageText {
             display: flex;
             flex-direction: column;
             position: relative;
             color: rgba(244, 193, 123, 0.986);
             text-shadow: 2px 2px 5px black;
 
-            .title{
+            .title {
                 display: block;
                 position: absolute;
                 bottom: 15%;
@@ -57,7 +64,7 @@
                 font-weight: bold;
             }
 
-            .photoCredit{
+            .photoCredit {
                 display: block;
                 position: absolute;
                 bottom: 5%;
@@ -69,7 +76,7 @@
             }
         }
 
-        .content{
+        .content {
             margin-inline-start: 5px;
             text-shadow: 2px 2px 10px rgba(250, 235, 215, 0.986);
 
@@ -77,15 +84,12 @@
     }
 
     /* Navigation-search stuff */
-    h1 {
-        text-align: center;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        background-color: #2abbdb;
-        border-radius: 5px;
-        border: 5px solid black
+    #Nav-container {
+        min-width: 250px;
     }
 
-    section {
+
+    #search {
         align-items: center;
         text-align: center;
         border: 5px solid black;
@@ -93,17 +97,125 @@
         background-color: #2abbdb;
         margin-bottom: 1rem;
 
+        .searchTitleAndInput {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        h2 {
+            margin-block-start: 5px;
+            text-align: center;
+        }
+
+        #filter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        select {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
     }
 
-    .searchTitleAndInput {
-        display: flex;
-        flex-direction: column;
+    #conservationStatusReference {
+        display: grid;   
         align-items: center;
+        text-align: left;
+        border: 5px solid black;
+        border-radius: 5px;
+        background-color: #2abbdb;
+
+        /* .consSearchTitle {
+           
+        } */
+
+        #consList {
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            padding-bottom: 1rem;;
+
+            .listStrings p,
+            .listCircles p {
+                margin-block-start: 1rem;
+                margin-block-end: 1rem;
+            }
+
+            .listStrings {
+                margin-inline-start: 1rem;
+            }
+
+            .listCircles {
+                margin-inline-start: 1rem;
+
+                .colour {
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                }
+
+                #Not_Threatened {
+                    background-color: #02a028;
+                }
+
+                #Naturally_Uncommon {
+                    background-color: #649a31;
+                }
+
+                #Relict {
+                    background-color: #99cb68;
+                }
+
+                #Recovering {
+                    background-color: #fecc33;
+                }
+
+                #Declining {
+                    background-color: #fe9a01;
+                }
+
+                #Nationally_Increasing {
+                    background-color: #c26967;
+                }
+
+                #Nationally_Vulnerable {
+                    background-color: #9b0000;
+                }
+
+                #Nationally_Endangered {
+                    background-color: #660032;
+                }
+
+                #Nationally_Critical {
+                    background-color: #320033;
+                }
+
+                #Extinct {
+                    background-color: black;
+                }
+
+                #Data_Deficient {
+                    background-color: black;
+                }
+            }
+        }
+
+
     }
 
-    h2 {
-        text-align: center;
-    }
+
+
+
 
     .grid {
         display: flex;
@@ -111,23 +223,8 @@
         gap: 1rem;
     }
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding-bottom: 1rem;
-    }
+ 
 
-    select {
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-    input {
-        box-sizing: border-box;
-        width: 100%;
-    }
 
 }
 
@@ -155,17 +252,17 @@
         border-color: black;
         outline-style: solid;
         outline-width: 4px;
-        
+
         outline-offset: -7px;
         border-width: 10px;
         box-shadow: 5px 5px 0px 0px black;
 
-        .onImageText{
+        .onImageText {
             display: flex;
             flex-direction: column;
             position: relative;
 
-            .title{
+            .title {
                 display: block;
                 position: absolute;
                 bottom: 15%;
@@ -177,7 +274,7 @@
                 font-weight: bold;
             }
 
-            .photoCredit{
+            .photoCredit {
                 display: block;
                 position: absolute;
                 bottom: 5%;
@@ -188,9 +285,9 @@
             }
         }
 
-        .content{
+        .content {
             margin-inline-start: 1rem;
-            
+
             margin-inline-end: 1rem;
 
         }
@@ -204,13 +301,13 @@
             border-width: 2px;
         }
 
-        p{
+        p {
             margin-block-start: 0px;
             margin-block-end: 0px;
         }
 
     }
-    
+
 
 
 
@@ -218,37 +315,129 @@
 
     /* Navigation-search stuff */
 
-    .Nav-container {
-        
-        position: fixed;
-        
+    #Nav-container {
+
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        min-width: 250px;
+        max-width: 100%;
+
     }
 
-    section {
+    #search {
+        display: grid;
         align-items: center;
         text-align: center;
         border: 5px solid black;
         border-radius: 5px;
         background-color: #2abbdb;
         width: 100%;
+
+        select {
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+        }
     }
-    
+
+    #conservationStatusReference {
+        align-items: center;
+        text-align: left;
+        border: 5px solid black;
+        border-radius: 5px;
+        background-color: #2abbdb;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        #consList {
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+
+            .listStrings p,
+            .listCircles p {
+                margin-block-start: 5px;
+                margin-block-end: 5px;
+            }
+
+            .listStrings {
+                margin-inline-start: 1rem;
+            }
+
+            .listCircles {
+                margin-inline-start: 1rem;
+
+                .colour {
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                }
+
+                #Not_Threatened {
+                    background-color: #02a028;
+                }
+
+                #Naturally_Uncommon {
+                    background-color: #649a31;
+                }
+
+                #Relict {
+                    background-color: #99cb68;
+                }
+
+                #Recovering {
+                    background-color: #fecc33;
+                }
+
+                #Declining {
+                    background-color: #fe9a01;
+                }
+
+                #Nationally_Increasing {
+                    background-color: #c26967;
+                }
+
+                #Nationally_Vulnerable {
+                    background-color: #9b0000;
+                }
+
+                #Nationally_Endangered {
+                    background-color: #660032;
+                }
+
+                #Nationally_Critical {
+                    background-color: #320033;
+                }
+
+                #Extinct {
+                    background-color: black;
+                }
+
+                #Data_Deficient {
+                    background-color: black;
+                }
+            }
+        }
+
+
+    }
+
+
     .grid {
         display: grid;
         grid-template-columns: 0.5fr 2fr;
         gap: 1rem;
     }
 
-    select {
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-    input {
-        width: 100%;
-    }
-
 }
+
+
+
+
 
 /* Large screens (laptops) */
 @media (min-width: 1366px) {
@@ -276,17 +465,17 @@
         border-color: black;
         outline-style: solid;
         outline-width: 4px;
-        
+
         outline-offset: -7px;
         border-width: 10px;
         box-shadow: 5px 5px 0px 0px black;
 
-        .onImageText{
+        .onImageText {
             display: flex;
             flex-direction: column;
             position: relative;
 
-            .title{
+            .title {
                 display: block;
                 position: absolute;
                 bottom: 15%;
@@ -298,7 +487,7 @@
                 font-weight: bold;
             }
 
-            .photoCredit{
+            .photoCredit {
                 display: block;
                 position: absolute;
                 bottom: 5%;
@@ -309,9 +498,9 @@
             }
         }
 
-        .content{
+        .content {
             margin-inline-start: 1rem;
-            
+
             margin-inline-end: 1rem;
 
         }
@@ -325,7 +514,7 @@
             border-width: 2px;
         }
 
-        p{
+        p {
             margin-block-start: 0px;
             margin-block-end: 0px;
         }
