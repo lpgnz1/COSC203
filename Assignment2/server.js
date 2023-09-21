@@ -32,11 +32,11 @@ app.post('/birds/edit', async (request, response) => {
     const photo_source = request.body.photo_source;
     const bird_id = request.body.bird_id;
 
-    status_id_query = `SELECT status_id FROM ConservationStatus WHERE status_name = "${status_name}" INTO @status_id;`
-    bird_update_query = `UPDATE Bird 
+    bird_update_query = `SELECT status_id FROM ConservationStatus WHERE status_name = "${status_name}" INTO @status_id;
+                         UPDATE Bird 
                          SET primary_name="${primary_name}", english_name="${english_name}", 
                              scientific_name="${scientific_name}", order_name="${order}",
-                             family="${family}", length=${length}, weight=${weight}
+                             family="${family}", length=${length}, weight=${weight}, status_id=@status_id
                          WHERE Bird.bird_id = ${bird_id};`
 
     const db = pool.promise();

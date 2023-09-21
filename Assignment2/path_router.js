@@ -122,20 +122,13 @@ router.get('/birds/:id/update', async (req, res) => {
 });
 
 router.get('/birds/:id/delete', async (req, res) => {
-    conservation_status_data = []
-
-    /* conservation status from mysql */
     const db = pool.promise();
-    const status_query = `SELECT * FROM ConservationStatus;`
-    try {
-        const [rows, fields] = await db.query(status_query);
-        conservation_status_data = rows;
-    } catch (err) {
-        console.error("You havent set up the database yet!");
-    }
-    
-    /* bind data to the view (create.ejs) */
-    res.render('create', { title: 'Birds of Aotearoa', status: conservation_status_data });
+    const bird_id = req.params.id;
+    const delete_query = `DELETE FROM Photos WHERE Photos.bird_id=${bird_id};
+                          DELETE FROM Bird WHERE Bird.bird_id=${bird_id};`
+    await db.query(delete_query);
+
+    res.redirect('/');
 });
 
 
