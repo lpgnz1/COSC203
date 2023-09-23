@@ -9,9 +9,9 @@
     <%- include('partials/header') %>
     <%- include('partials/sidebar', { status: status}) %>
     <main id="update">
-        <form action="/birds/edit" method="POST">
+        <form action="/birds/edit" method="POST" enctype="multipart/form-data">
             <%- include('partials/info_form', {bird: bird, status: status}) %>
-            <button class='button' type="submit">Edit Bird</button>
+            <button class='button' type="submit" value="edit_bird">Edit Bird</button>
         </form>
     </main>
     <%- include('partials/footer') %>
