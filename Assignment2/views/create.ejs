@@ -9,7 +9,7 @@
     <%- include('partials/header') %>
     <%- include('partials/sidebar', { status: status}) %>
     <main id="create">
-        <form action="/birds/create" method="POST">
+        <form action="/birds/create" method="POST" enctype="multipart/form-data">
             <%- include('partials/info_form', {bird: bird, status: status}) %>
             <button class='button' type="submit">Save Bird</button>
         </form>
